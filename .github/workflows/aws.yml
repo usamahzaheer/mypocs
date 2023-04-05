@@ -63,11 +63,11 @@ jobs:
 #       run: aws eks update-kubeconfig --region us-east-2 --name usamaeks
       run: |
         mkdir $HOME/.kube/
-        echo ${{ secrets.KUBECONFIG }} > $HOME/.kube/config.yaml
+        echo ${{ secrets.KUBECONFIG }} > kubeconfig.yaml
 
         
     
     - name: Deploy to EKS
       run: |
-        export KUBECONFIG=$HOME/.kube/config.yaml
+        export KUBECONFIG=kubeconfig.yaml
         kubectl create ns usama
