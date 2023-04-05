@@ -62,8 +62,9 @@ jobs:
     - name: Update kube config
 #       run: aws eks update-kubeconfig --region us-east-2 --name usamaeks
       run: |
-        mkdir $HOME/.kube
-        echo ${{ secrets.KUBECONFIG }} | base64 --decode > $HOME/.kube/config
+        mkdir $HOME/.kube/
+        cd $HOME/.kube/
+        echo ${{ secrets.KUBECONFIG }} | base64 --decode > config
         cat config
 
         
