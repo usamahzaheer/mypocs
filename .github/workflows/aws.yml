@@ -64,12 +64,10 @@ jobs:
       run: |
         mkdir $HOME/.kube/
         echo ${{ secrets.KUBECONFIG }} > $HOME/.kube/config
-        cat $HOME/.kube/config
-        export KUBECONFIG=$HOME/.kube/config
-        kubectl run nginx --image=nginx
+
         
     
-#     - name: Deploy to EKS
-#       run: |
-#         export KUBECONFIG=$HOME/.kube/config
-#         kubectl create ns usama
+    - name: Deploy to EKS
+      run: |
+        export KUBECONFIG=$HOME/.kube/config
+        kubectl create ns usama
