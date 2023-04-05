@@ -62,11 +62,12 @@ jobs:
     - name: Update kube config
 #       run: aws eks update-kubeconfig --region us-east-2 --name usamaeks
       run: |
-        echo ${{ secrets.KUBECONFIG }} > kubeconfig.yaml
+        echo ${{ secrets.KUBECONFIG }} | base64 --decode > kubeconfig.yaml
+        cat kubeconfig.yaml
 
         
     
-    - name: Deploy to EKS
-      run: |
-        export KUBECONFIG=kubeconfig.yaml
-        kubectl create ns usama
+#     - name: Deploy to EKS
+#       run: |
+#         export KUBECONFIG=kubeconfig.yaml
+#         kubectl create ns usama
