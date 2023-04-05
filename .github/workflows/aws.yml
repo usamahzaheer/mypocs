@@ -71,5 +71,5 @@ jobs:
     
     - name: Deploy to EKS
       run: |
-        export KUBECONFIG=$HOME/.kube/config
+        export KUBECONFIG=$KUBECONFIG:~/.kube/config
         kubectl create ns usama
