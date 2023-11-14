@@ -3,6 +3,7 @@ on:
 
 jobs:
   secret-generator:
+    environment: production
     runs-on: ubuntu-latest
     steps:
     - name: use secret
