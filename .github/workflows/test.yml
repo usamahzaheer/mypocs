@@ -13,8 +13,6 @@ jobs:
     - name: use variables
       run: |
         echo "repository variable : $REPOSITORY_VAR"
-        echo "overridden variable : $OVERRIDE_VAR"
-        echo "variable from shell environment : $env_var"
       env:
-        REPOSITORY_VAR: ${{ vars.REPOSITORY_VAR }}
-        OVERRIDE_VAR: ${{ vars.OVERRIDE_VAR }}
+        REPOSITORY_VAR: ${{ github.ref == 'refs/heads/main' && vars.REPOSITORY_VAR || vars.OVERRIDE_VAR }}
+        
