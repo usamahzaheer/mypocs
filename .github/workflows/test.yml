@@ -11,6 +11,6 @@ jobs:
         echo "hello world"
     - shell: bash
       env:
-        SUPER_SECRET: ${{ secrets.SuperSecret }}
+        SUPER_SECRET: ${{ secrets.test }}
       run: |
-        example-command "$SUPER_SECRET"
+        example-command "$TEST"
