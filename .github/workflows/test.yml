@@ -1,0 +1,16 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  secret-generator:
+    runs-on: ubuntu-latest
+    steps:
+    - name: use secret
+      shell: bash
+      run: |
+        echo "hello world"
+    - shell: bash
+      env:
+        SUPER_SECRET: ${{ secrets.SuperSecret }}
+      run: |
+        example-command "$SUPER_SECRET"
