@@ -12,6 +12,6 @@ jobs:
         echo "hello world"
     - shell: bash
       env:
-        SUPER_SECRET: ${{ secrets.test }}
+        SUPER_SECRET: ${{ vars.test }}
       run: |
          echo "$SUPER_SECRET"
