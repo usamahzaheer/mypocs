@@ -10,8 +10,9 @@ jobs:
       shell: bash
       run: |
         echo "hello world"
-    - shell: bash
-      env:
-        SUPER_SECRET: ${{ vars.test }}
+    - name: use variables
       run: |
-         echo "$SUPER_SECRET"
+        echo "repository variable : $REPOSITORY_VAR"
+      env:
+        REPOSITORY_VAR: ${{ github.ref == 'refs/heads/main' && vars.REPOSITORY_VAR || vars.OVERRIDE_VAR }}
+        
